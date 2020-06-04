@@ -15,4 +15,3 @@ class Source (models.Model):
     article_body_class = models.CharField(max_length=100, null=False)
     article_image_class = models.CharField(max_length=100)
     calification = models.IntegerField(default=100)
-
