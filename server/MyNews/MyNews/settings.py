@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
+correo: mnews1309@gmail.com
+contraseña  correo: myNews2020*
+
 """
 
 import os
