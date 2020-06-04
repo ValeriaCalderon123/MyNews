@@ -94,8 +94,12 @@ WSGI_APPLICATION = 'MyNews.wsgi.application'
 if DEBUG:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'd54nebpsdlo3q2',
+            'USER': 'jaensgcuxyukur',
+            'PASSWORD': '9d4426adf48c492e87e22fb2e8b81b361899c8f42df07f68a19c10b062c88483',
+            'HOST': 'ec2-52-70-15-120.compute-1.amazonaws.com',
+            'PORT': '5432',
         }
     }
 else:
