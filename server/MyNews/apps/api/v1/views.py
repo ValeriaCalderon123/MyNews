@@ -3,8 +3,9 @@ from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from apps.source.serializers import SourceSerializer
-from apps.source.models import Source
+from apps.source.serializers import SourceSerializer, CategorySerializer, \
+    SourceCategoryShowSerializer, SourceCategoryCreateUpdateSerializer
+from apps.source.models import Source, Category, SourceCategory
 from apps.user.serializers import UserSerializer, SuperUserSerializer
 from django.contrib.auth.models import User
 from permissions.permissions import AdminAuthenticationPermission
@@ -48,4 +49,34 @@ class SourceListAPIView(generics.ListAPIView):
 class SourceCreateAPIView(generics.CreateAPIView):
     queryset = Source.objects.all()
     serializer_class = SourceSerializer
+    permission_classes = (IsAuthenticated, AdminAuthenticationPermission)
+
+
+class CategoryListView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (IsAuthenticated,)
+
+
+class CategoryCreateView(generics.CreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (IsAuthenticated, AdminAuthenticationPermission)
+
+
+class CategoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (IsAuthenticated, AdminAuthenticationPermission)
+
+
+class SourceCategoryListView(generics.ListCreateAPIView):
+    queryset = SourceCategory.objects.all()
+    serializer_class = SourceCategoryShowSerializer
+    permission_classes = (IsAuthenticated, AdminAuthenticationPermission)
+
+
+class SourceCategoryCreateView(generics.CreateAPIView):
+    queryset = SourceCategory.objects.all()
+    serializer_class = SourceCategoryCreateUpdateSerializer
     permission_classes = (IsAuthenticated, AdminAuthenticationPermission)
