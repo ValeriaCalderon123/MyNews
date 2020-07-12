@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -15,13 +16,24 @@ class Source(models.Model):
     article_image_class = models.CharField(max_length=100)
     calification = models.IntegerField(default=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
 
 
 class SourceCategory(models.Model):
     source = models.ForeignKey(Source, on_delete=models.CASCADE, related_name='categories')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='sources')
     url = models.URLField(max_length=300, null=False)
+
+
+class UserCategory(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='user')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='categories')
 
