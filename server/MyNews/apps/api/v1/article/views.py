@@ -18,6 +18,7 @@ class SearchAPIView(APIView):
         search_results = search.search(key)
         return Response(ArticleSerializer(search_results, many=True).data)
 
+
 class CategorySearchAPIView(APIView):
     permission_classes = (IsAuthenticated,)
 

@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
 from apps.article.models import Article
-from apps.source.serializers import SourceSerializer
+from apps.source.serializers import SourceShowSerializer
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    source = SourceSerializer()
+    source = SourceShowSerializer()
 
     class Meta:
         model = Article

@@ -22,12 +22,16 @@ class SourceCategoryShowSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class SourceSerializer(serializers.ModelSerializer):
-    categories = SourceCategoryShowSerializer(many=True)
+class SourceCreateUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Source
         fields = '__all__'
 
+class SourceShowSerializer(serializers.ModelSerializer):
+    categories = SourceCategoryShowSerializer(many=True)
+    class Meta:
+        model = Source
+        fields = '__all__'
 
 class UserCategoryCreateUpdateSerializer(serializers.ModelSerializer):
     class Meta:
