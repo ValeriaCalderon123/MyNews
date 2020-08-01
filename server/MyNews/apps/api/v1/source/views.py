@@ -1,3 +1,6 @@
+"""
+This view is method for API view of Sources in first version
+"""
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
@@ -11,25 +14,41 @@ from permissions.permissions import AdminAuthenticationPermission
 
 
 class SourceListAPIView(generics.ListAPIView):
+    """
+    Returns list of sources
+    """
     queryset = Source.objects.filter(calification__gte=0)
     serializer_class = SourceShowSerializer
 
 
 class SourceCreateAPIView(generics.CreateAPIView):
+    """
+    Interface to create sources
+    """
     queryset = Source.objects.all()
     serializer_class = SourceCreateUpdateSerializer
     permission_classes = (IsAuthenticated, AdminAuthenticationPermission)
 
 
 class CalificateSourceAPIView(APIView):
+    """
+    Interface to evaluate sources
+    """
     permission_classes = (IsAuthenticated,)
 
     def put(self, request, pk):
+        """
+        :param request: Request object
+        :param pk: primary key of articcle
+        :return: Response object
+        """
+        print(self.request.user, " wants claficate an article")
         article = get_object_or_404(Article, pk=pk)
         calification = request.data.get('calification')
         calification_num = 0
         edit = False
-        if calification.__class__ == int and calification is not 0:
+        neutral_evaluation = 0
+        if calification.__class__ == int and calification is not neutral_evaluation:
             calification_num = calification / abs(calification)
             edit = True
         elif calification.__class__ == str and calification.isdigit():

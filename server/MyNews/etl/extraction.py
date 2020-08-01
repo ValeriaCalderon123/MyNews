@@ -1,9 +1,14 @@
+"""
+This module is for extract article from Web
+"""
 import hashlib
 import logging
 import re
 import random
 import bs4
 import requests
+from django.core.exceptions import ValidationError
+
 from apps.article.models import Article
 from apps.source.models import Source
 
@@ -14,17 +19,28 @@ is_root_path = re.compile(r'^/.+$')
 
 
 def build_link(host, link):
-    logger.info('Building link ' + link)
+    """
+    This method is for build corret URLS
+    :param host: host del link
+    :param link: link to correct
+    :return: link corrected
+    """
+    logger.info('Building link %s', link)
     if is_well_formed_url.match(link):
         return link
-    elif is_root_path.match(link):
+    if is_root_path.match(link):
         return '{host}{uri}'.format(host=host, uri=link[1:len(link)])
-    else:
-        return '{host}/{uri}'.format(host=host, uri=link)
+    return '{host}/{uri}'.format(host=host, uri=link)
 
 
 def scrap_article(url: str, source: Source):
-    logger.info('Scrapping ' + url)
+    """
+    This method extract article from web
+    :param url: URL of article
+    :param source:  Source of Article
+    :return: Article
+    """
+    logger.info('Scrapping %s', url)
     response = requests.get(url)
     if response.status_code == 200:
         soup = bs4.BeautifulSoup(response.text, 'html.parser')
@@ -38,13 +54,22 @@ def scrap_article(url: str, source: Source):
             article.image = soup.select('.' + source.article_image_class)[0]['src']
             article.save()
             return article
-        except:
-            logger.error('Error while scrapping article ' + url)
+        except IndexError:
+            logger.error('Error while scrapping article %s', url)
+            return None
+        except ValidationError:
+            logger.error('Error while validating article %s', url)
             return None
     return None
 
 
 def join_save_and_unsaved_articles(saved_articles, unsaved_articles):
+    """
+    Joins artciles and and saved articles
+    :param saved_articles: article saved
+    :param unsaved_articles: link of article unsaved
+    :return: List from all articles
+    """
     if len(saved_articles) == 10:
         return saved_articles
     if len(saved_articles) > 10:
@@ -60,6 +85,11 @@ def join_save_and_unsaved_articles(saved_articles, unsaved_articles):
 
 
 def saved_and_unsaved(articles_link):
+    """
+    Separate articles in saved and unsaved
+    :param articles_link: articles to show
+    :return:list of articles saved and list of articles no saved
+    """
     logger.info('Searching  in saved articles')
     saved_articles = []
     unsaved_articles = []

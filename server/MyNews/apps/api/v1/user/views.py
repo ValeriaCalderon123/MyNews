@@ -1,13 +1,14 @@
+"""
+This module contents the views for the Model User to the first version to API Rest Service
+"""
 from django.contrib.auth.models import User
-from rest_framework import generics, status
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
-from apps.user.serializers import UserSerializer, SuperUserSerializer
-from permissions.permissions import AdminAuthenticationPermission
-from rest_framework.response import Response
+from rest_framework import generics
+from apps.user.serializers import UserSerializer
 
 
 class UserListCreateAPIView(generics.ListCreateAPIView):
+    """
+    This class register and list the user instances
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
