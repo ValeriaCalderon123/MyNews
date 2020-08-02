@@ -1,11 +1,17 @@
 package com.example.mynews.services.mynews;
 
+import com.example.mynews.models.Article;
 import com.example.mynews.models.Session;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface MyNewsService {
 
@@ -14,5 +20,11 @@ public interface MyNewsService {
     public Call<Session> login(
             @Field("username") String username,
             @Field("password") String password
+    );
+
+    @GET("article/search/{key}")
+    public Call<ArrayList<Article>> search(
+            @Header("Authorization") String token,
+            @Path("key") String key
     );
 }

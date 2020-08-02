@@ -1,6 +1,10 @@
 package com.example.mynews.services.mynews;
 
+import com.example.mynews.login.LogUser;
+import com.example.mynews.models.Article;
 import com.example.mynews.models.Session;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -22,4 +26,11 @@ public class MyNewsRetrofit {
     public Call<Session> login(String username, String password) {
         return this.service.login(username, password);
     }
+
+    public Call<ArrayList<Article>> search(String key_word){
+        return this.service.search(
+                "token " + LogUser.currentLogUser.getSession().getToken()
+                , key_word);
+    }
+
 }
