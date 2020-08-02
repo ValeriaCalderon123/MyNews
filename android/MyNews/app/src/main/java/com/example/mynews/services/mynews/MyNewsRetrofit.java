@@ -2,7 +2,9 @@ package com.example.mynews.services.mynews;
 
 import com.example.mynews.login.LogUser;
 import com.example.mynews.models.Article;
+import com.example.mynews.models.Calification;
 import com.example.mynews.models.Session;
+import com.example.mynews.models.Source;
 
 import java.util.ArrayList;
 
@@ -31,6 +33,14 @@ public class MyNewsRetrofit {
         return this.service.search(
                 "token " + LogUser.currentLogUser.getSession().getToken()
                 , key_word);
+    }
+
+    public Call<Source> calificate(String uuid, int calification){
+        return this.service.calificate(
+                "token " + LogUser.currentLogUser.getSession().getToken(),
+                uuid,
+                new Calification(calification)
+        );
     }
 
 }

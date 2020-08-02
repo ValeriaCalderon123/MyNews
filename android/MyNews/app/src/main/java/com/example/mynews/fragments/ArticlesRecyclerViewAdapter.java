@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.example.mynews.R;
 
 import com.example.mynews.models.Article;
+import com.example.mynews.onClickListeners.CalificationListener;
+import com.example.mynews.services.mynews.MyNewsRetrofit;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -56,6 +58,8 @@ public class ArticlesRecyclerViewAdapter extends RecyclerView.Adapter<ArticlesRe
 
             }
         });
+        holder.likeButton.setOnClickListener(new CalificationListener(1, article.getUuid(), new MyNewsRetrofit(), this.context));
+        holder.unLikeButton.setOnClickListener(new CalificationListener(-1, article.getUuid(), new MyNewsRetrofit(), this.context));
     }
 
     public void setDataset(ArrayList<Article> articles){
@@ -73,12 +77,17 @@ public class ArticlesRecyclerViewAdapter extends RecyclerView.Adapter<ArticlesRe
         public final TextView textTitleNews;
         public final TextView textBodyNews;
         public final ImageButton readButton;
+        public final ImageButton likeButton;
+        public final ImageButton unLikeButton;
+
         public ViewHolder(View view) {
             super(view);
             this.imageNews = (ImageView) view.findViewById(R.id.imageNews);
             this.textTitleNews = (TextView) view.findViewById(R.id.textTitleNews);
             this.textBodyNews = (TextView) view.findViewById(R.id.textBodyNews);
             this.readButton = (ImageButton) view.findViewById(R.id.buttonRead);
+            this.likeButton = (ImageButton) view.findViewById(R.id.buttonLike);
+            this.unLikeButton = (ImageButton) view.findViewById(R.id.buttonUnlike);
         }
 
      }
