@@ -25,13 +25,14 @@ public class NewsFragment extends Fragment {
     private  RecyclerView recyclerView;
     private ArticlesRecyclerViewAdapter articlesRecyclerViewAdapter;
     private ArrayList<Article> articles;
+    private View view;
     public NewsFragment(ArrayList<Article> articles) {
         this.articles = articles;
 
     }
 
-    public void setDataset(ArrayList<Article> articles){
-        this.articlesRecyclerViewAdapter.setDataset(articles);
+    public void setDataSet(ArrayList<Article> articles){
+        this.articles = articles;
     }
 
     @Override
@@ -43,8 +44,8 @@ public class NewsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news_list, container, false);
-
+        if (this.view == null)
+            this.view = inflater.inflate(R.layout.fragment_news_list, container, false);
         return  view;
     }
 

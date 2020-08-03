@@ -26,8 +26,13 @@ public class CategoryFragment extends Fragment {
     private RecyclerView recyclerView;
     private CategoryRecyclerViewAdapter categoryRecyclerViewAdapter;
     private ArrayList<Category> categories;
+    private View view;
 
     public CategoryFragment(ArrayList<Category> categories) {
+        this.categories = categories;
+    }
+
+    public void setDataSet(ArrayList<Category> categories){
         this.categories = categories;
     }
 
@@ -41,7 +46,8 @@ public class CategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_category_list, container, false);
+        if (this.view== null)
+            this.view = inflater.inflate(R.layout.fragment_category_list, container, false);
         this.categoryRecyclerViewAdapter = new CategoryRecyclerViewAdapter(this.categories, this);
         this.recyclerView = (RecyclerView) view.findViewById(R.id.list_categories);
         this.recyclerView.setHasFixedSize(true);
