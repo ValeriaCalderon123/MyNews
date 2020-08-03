@@ -3,6 +3,7 @@ package com.example.mynews.services.mynews;
 import com.example.mynews.login.LogUser;
 import com.example.mynews.models.Article;
 import com.example.mynews.models.Calification;
+import com.example.mynews.models.Category;
 import com.example.mynews.models.Session;
 import com.example.mynews.models.Source;
 
@@ -41,6 +42,18 @@ public class MyNewsRetrofit {
                 uuid,
                 new Calification(calification)
         );
+    }
+
+    public Call<ArrayList<Category>> getCategories(){
+        return this.service.listCategories(
+                "token " + LogUser.currentLogUser.getSession().getToken()
+        );
+    }
+
+    public Call<ArrayList<Article>> getArticlesByCategory(int pk){
+        return this.service.articlesByCategory(
+                "token " + LogUser.currentLogUser.getSession().getToken()
+                , pk);
     }
 
 }

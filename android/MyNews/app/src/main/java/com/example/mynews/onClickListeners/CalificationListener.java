@@ -37,11 +37,6 @@ public class CalificationListener implements View.OnClickListener {
                     ShowToast.show(context, "Gracias por su calificación");
                 } else {
                     ShowToast.show(context, "No se puedo hacer su calificación");
-                    try {
-                        System.out.println(response.errorBody().string().toString() + "----------------------------------");
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage() +" *********************************************************");
-                    }
                 }
             }
 

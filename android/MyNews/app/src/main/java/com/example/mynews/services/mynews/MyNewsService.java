@@ -2,6 +2,7 @@ package com.example.mynews.services.mynews;
 
 import com.example.mynews.models.Article;
 import com.example.mynews.models.Calification;
+import com.example.mynews.models.Category;
 import com.example.mynews.models.Session;
 import com.example.mynews.models.Source;
 
@@ -40,4 +41,14 @@ public interface MyNewsService {
             @Body Calification calification
             );
 
+    @GET("category/")
+    public Call<ArrayList<Category>> listCategories(
+            @Header("Authorization") String token
+    );
+
+    @GET("article/category/{pk}")
+    public Call<ArrayList<Article>> articlesByCategory(
+            @Header("Authorization") String token,
+            @Path("pk") int pk
+    );
 }
