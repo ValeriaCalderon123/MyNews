@@ -6,6 +6,7 @@ import com.example.mynews.models.Calification;
 import com.example.mynews.models.Category;
 import com.example.mynews.models.Session;
 import com.example.mynews.models.Source;
+import com.example.mynews.models.User;
 
 import java.util.ArrayList;
 
@@ -59,6 +60,16 @@ public class MyNewsRetrofit {
     public Call<Object> logout(){
         return this.service.logout(
                 "token " + LogUser.currentLogUser.getSession().getToken()
+        );
+    }
+
+    public Call<User> registerUser(String username, String last_name, String first_name, String email, String password){
+        return this.service.registerUser(
+                username,
+                last_name,
+                first_name,
+                email,
+                password
         );
     }
 

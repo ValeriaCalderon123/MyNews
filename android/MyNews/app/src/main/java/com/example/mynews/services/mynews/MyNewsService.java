@@ -5,6 +5,7 @@ import com.example.mynews.models.Calification;
 import com.example.mynews.models.Category;
 import com.example.mynews.models.Session;
 import com.example.mynews.models.Source;
+import com.example.mynews.models.User;
 
 import java.util.ArrayList;
 
@@ -55,5 +56,15 @@ public interface MyNewsService {
     @GET("logout/")
     public Call<Object> logout(
             @Header("Authorization") String token
+    );
+
+    @POST("user/")
+    @FormUrlEncoded
+    public Call<User> registerUser(
+            @Field("username") String username,
+            @Field("last_name") String last_name,
+            @Field("first_name") String first_name,
+            @Field("email") String email,
+            @Field("password") String password
     );
 }

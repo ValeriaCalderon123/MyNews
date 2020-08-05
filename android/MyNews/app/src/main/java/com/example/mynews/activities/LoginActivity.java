@@ -38,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
         this.retrofit = new MyNewsRetrofit();
     }
 
+    public void showUserRegisterForm(View view){
+        Intent intent = new Intent (this, RegisterUserActivity.class);
+        this.startActivity(intent);
+    }
+
     public void login(View _view){
         String username = ((EditText)this.findViewById(R.id.username_input)).getText().toString();
         String password = ((EditText)this.findViewById(R.id.password_input)).getText().toString();
