@@ -15,6 +15,7 @@ import com.example.mynews.fragments.FragmentManager;
 import com.example.mynews.fragments.menubar.MenuBarFragment;
 import com.example.mynews.login.LogUser;
 import com.example.mynews.models.Category;
+import com.example.mynews.onClickListeners.LogOutOnClickListener;
 import com.example.mynews.onClickListeners.MenuBarOnClickListener;
 import com.example.mynews.services.mynews.MyNewsRetrofit;
 import com.example.mynews.toast.ShowToast;
@@ -52,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
         ImageButton homeButton = this.createButton(R.drawable.home_icon, padding, layoutParams);
         homeButton.setOnClickListener(new MenuBarOnClickListener(homeButton, FragmentManager.categoryFragment, this));
         imageButtons.add(homeButton);
+
+
+        ImageButton logOutButton = this.createButton(R.drawable.logout_icon, padding, layoutParams);
+        logOutButton.setOnClickListener(new LogOutOnClickListener(this.retrofit, this, logOutButton));
+        imageButtons.add(logOutButton);
         return  imageButtons;
     }
 

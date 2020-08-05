@@ -51,4 +51,9 @@ public interface MyNewsService {
             @Header("Authorization") String token,
             @Path("pk") int pk
     );
+
+    @GET("logout/")
+    public Call<Object> logout(
+            @Header("Authorization") String token
+    );
 }

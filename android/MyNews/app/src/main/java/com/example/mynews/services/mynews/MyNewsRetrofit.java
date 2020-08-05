@@ -56,4 +56,10 @@ public class MyNewsRetrofit {
                 , pk);
     }
 
+    public Call<Object> logout(){
+        return this.service.logout(
+                "token " + LogUser.currentLogUser.getSession().getToken()
+        );
+    }
+
 }

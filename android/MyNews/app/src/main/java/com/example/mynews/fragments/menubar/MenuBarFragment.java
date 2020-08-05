@@ -49,7 +49,7 @@ public class MenuBarFragment extends Fragment {
 
     public void addButtons(ArrayList<ImageButton> imageButtons){
         for (ImageButton imageButton: imageButtons){
-            this.linearLayout.addView(imageButton, 0);
+            this.linearLayout.addView(imageButton);
         }
         this.imageButtons.addAll(imageButtons);
     }
