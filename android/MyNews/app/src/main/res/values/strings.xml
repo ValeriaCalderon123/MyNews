@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">MyNews</string>
     <string name="login">Iniciar Sesión</string>
-    <string name="username">Nombre de Usuario</string>
-    <string name="password">Contraseña</string>
+    <string name="username"> Nombre de Usuario</string>
+    <string name="password"> Contraseña</string>
+    <string name="register">Registrarse</string>
     <string name="search">Buscar</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
