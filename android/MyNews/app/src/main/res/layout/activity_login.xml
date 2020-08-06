@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,6 +28,7 @@
                 android:id="@+id/username_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_user_icon"
                 android:hint="@string/username"
                 android:inputType="text"
                 android:textColorHighlight="@color/colorPrimaryDark"
@@ -55,6 +55,7 @@
                 android:id="@+id/password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_password_icon"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 />
@@ -62,10 +63,10 @@
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_width="331dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_border"
             android:onClick="login"
             android:padding="@dimen/padding_button"
             android:paddingLeft="@dimen/padding_button"
@@ -77,24 +78,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_error" />
-
-        <Button
-            android:id="@+id/login_button2"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/design_default_color_secondary_variant"
-            android:onClick="showUserRegisterForm"
-            android:padding="@dimen/padding_button"
-            android:paddingLeft="@dimen/padding_button"
-            android:paddingTop="@dimen/padding_button"
-            android:paddingRight="@dimen/padding_button"
-            android:paddingBottom="@dimen/padding_button"
-            android:text="Registrarse"
-            android:textColor="@android:color/background_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -111,13 +94,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
+            android:padding="@dimen/padding_button"
+            android:paddingLeft="@dimen/padding_button"
+            android:paddingTop="@dimen/padding_button"
+            android:paddingRight="@dimen/padding_button"
+            android:paddingBottom="@dimen/padding_button"
             android:textColor="@color/design_default_color_error"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="331dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_register"
+            android:onClick="showUserRegisterForm"
+            android:text="Registrarse"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
