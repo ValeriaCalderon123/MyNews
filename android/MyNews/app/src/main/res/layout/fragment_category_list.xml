@@ -9,7 +9,6 @@
     android:layout_alignParentBottom="true"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    android:paddingBottom="65dp"
     app:layout_constrainedHeight="true"
     app:layoutManager="LinearLayoutManager"
     tools:context=".fragments.categories.CategoryFragment"

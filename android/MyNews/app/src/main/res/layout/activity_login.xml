@@ -1,119 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        app:hintTextColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.LoginActivity">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_input"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_user_icon"
-            android:hint="@string/username"
-            android:inputType="text"
-            android:textColorHighlight="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorLink="@color/colorPrimaryDark"
-            android:textCursorDrawable="@color/colorPrimaryDark" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            app:hintTextColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        app:hintTextColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_user_icon"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColorLink="@color/colorPrimaryDark"
+                android:textCursorDrawable="@color/colorPrimaryDark" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_input"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_password_icon"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            app:hintTextColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="331dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/button_border"
-        android:onClick="login"
-        android:padding="@dimen/padding_button"
-        android:paddingLeft="@dimen/padding_button"
-        android:paddingTop="@dimen/padding_button"
-        android:paddingRight="@dimen/padding_button"
-        android:paddingBottom="@dimen/padding_button"
-        android:text="@string/login"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_password_icon"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="331dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_border"
+            android:onClick="login"
+            android:padding="@dimen/padding_button"
+            android:paddingLeft="@dimen/padding_button"
+            android:paddingTop="@dimen/padding_button"
+            android:paddingRight="@dimen/padding_button"
+            android:paddingBottom="@dimen/padding_button"
+            android:text="@string/login"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_error" />
 
-    <TextView
-        android:id="@+id/login_error"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:padding="@dimen/padding_button"
-        android:paddingLeft="@dimen/padding_button"
-        android:paddingTop="@dimen/padding_button"
-        android:paddingRight="@dimen/padding_button"
-        android:paddingBottom="@dimen/padding_button"
-        android:textColor="@color/design_default_color_error"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_button" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="331dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_register"
-        android:text="@string/register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        <TextView
+            android:id="@+id/login_error"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:padding="@dimen/padding_button"
+            android:paddingLeft="@dimen/padding_button"
+            android:paddingTop="@dimen/padding_button"
+            android:paddingRight="@dimen/padding_button"
+            android:paddingBottom="@dimen/padding_button"
+            android:textColor="@color/design_default_color_error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="331dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_register"
+            android:onClick="showUserRegisterForm"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

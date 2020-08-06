@@ -9,7 +9,6 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:layout_marginBottom="8dp"
-    android:paddingBottom="65dp"
     app:layoutManager="LinearLayoutManager"
     app:layout_constrainedHeight="true"
     tools:context=".fragments.article.NewsFragment"
