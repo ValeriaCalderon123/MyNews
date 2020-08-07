@@ -5,6 +5,6 @@ from apps.api.v1.user.admin.views import AdminUserListCreateAPIView, AdminUpdate
 
 urlpatterns = [
     path('', AdminUserListCreateAPIView.as_view(), name='list-create'),
-    path('<pk>', AdminUpdateUserAPIView.as_view(), name='update-create'),
+    path('<username>', AdminUpdateUserAPIView.as_view(), name='update-create'),
 
 ]
