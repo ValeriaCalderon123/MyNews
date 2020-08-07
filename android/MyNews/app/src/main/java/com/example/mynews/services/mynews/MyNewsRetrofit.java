@@ -11,7 +11,6 @@ import com.example.mynews.models.User;
 import java.util.ArrayList;
 
 import retrofit2.Call;
-import retrofit2.CallAdapter;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -83,6 +82,13 @@ public class MyNewsRetrofit {
     public Call<ArrayList<User>> getAdminUserList(){
         return this.service.getAdminUserList(
                 "token " + LogUser.currentLogUser.getSession().getToken()
+        );
+    }
+
+    public Call<User> userToSuperUser(String username){
+        return  this.service.userToSuperUser(
+                "token " + LogUser.currentLogUser.getSession().getToken(),
+                username
         );
     }
 }

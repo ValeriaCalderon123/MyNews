@@ -42,6 +42,11 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         this.notifyDataSetChanged();
     }
 
+    public void addAdmin(User admin, int index){
+        this.users.add(index, admin);
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return this.users.size();

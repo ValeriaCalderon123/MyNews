@@ -31,7 +31,8 @@
                     android:id="@+id/nameuser_new_admin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre de Usuario" />
+                    android:hint="Nombre de Usuario"
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -50,7 +51,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <fragment
-            android:id="@+id/fragment2"
+            android:id="@+id/fragment_admin_list"
             android:name="com.example.mynews.fragments.usersAdmin.UserFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

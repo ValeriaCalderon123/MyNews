@@ -23,7 +23,7 @@ class AdminUpdateUserAPIView(APIView):
     def put(self, request, username):
         user = get_object_or_404(User.objects.all(), username = username)
         if user.is_superuser:
-            return Response( {"error": "Usuario ya es superusuario"} , status = status.HTTP_412_PRECONDITION_FAILED)
+            return Response( {"error": "Usuario ya es superusuario"} , status = status.HTTP_304_NOT_MODIFIED)
         user.is_superuser = True
         user.save()
         return Response(self.serializer_class(user).data, status=status.HTTP_200_OK)

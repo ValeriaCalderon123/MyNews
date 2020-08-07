@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.mynews.R;
 import com.example.mynews.callbacks.AdminListCallBack;
+import com.example.mynews.fragments.FragmentManager;
 import com.example.mynews.models.User;
 import com.example.mynews.services.mynews.MyNewsRetrofit;
 
@@ -30,6 +31,10 @@ public class UserFragment extends Fragment {
     public UserFragment() {
         this.hasToUpdate = false;
         this.retrofit = new MyNewsRetrofit();
+    }
+
+    public UserRecyclerViewAdapter getAdapter(){
+        return this.userRecyclerViewAdapter;
     }
 
 
@@ -55,6 +60,7 @@ public class UserFragment extends Fragment {
             this.updateData();
 
         }
+        FragmentManager.userFragment = this;
 
         return this.view;
     }

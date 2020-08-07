@@ -77,4 +77,10 @@ public interface MyNewsService {
     public Call<ArrayList<User>> getAdminUserList(
             @Header("Authorization") String token
     );
+
+    @PUT("user/admin/{username}")
+    public Call<User> userToSuperUser(
+            @Header("Authorization") String token,
+            @Path("username") String username
+    );
 }
