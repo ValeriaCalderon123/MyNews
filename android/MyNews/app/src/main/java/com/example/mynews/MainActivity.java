@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.SearchView;
 
 import com.example.mynews.callbacks.ArticlesListCallBack;
+import com.example.mynews.callbacks.UserAthenticatedCallBack;
 import com.example.mynews.fragments.FragmentManager;
 import com.example.mynews.fragments.menubar.MenuBarFragment;
 import com.example.mynews.login.LogUser;
@@ -42,6 +43,21 @@ public class MainActivity extends AppCompatActivity {
         this.loadSearchView();
         FragmentManager.menuBarFragment = (MenuBarFragment) this.getSupportFragmentManager().findFragmentById(R.id.menu_bar_fragment);
         FragmentManager.menuBarFragment.addButtons(this.createButtons());
+        this.loadAdminButtons();
+    }
+
+    private void loadAdminButtons() {
+        ArrayList<ImageButton> imageButtons = new ArrayList<ImageButton>();
+        int dp = (int)this.getApplicationContext().getResources().getDisplayMetrics().density;
+        int size=60*dp;
+        int padding = 15*dp;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(size,size);
+        ImageButton usersButton = this.createButton(R.drawable.users_icon, padding, layoutParams);
+        usersButton.setOnClickListener(new MenuBarOnClickListener(usersButton, FragmentManager.userAdminOperationsFragment, this));
+
+
+        imageButtons.add(usersButton);
+        this.retrofit.userAthenticated().enqueue(new UserAthenticatedCallBack(this.getApplicationContext(), this, imageButtons, 1));
     }
 
     public ArrayList<ImageButton> createButtons(){

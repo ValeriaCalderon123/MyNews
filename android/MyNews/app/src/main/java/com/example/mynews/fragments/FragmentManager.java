@@ -13,6 +13,8 @@ import com.example.mynews.fragments.categories.CategoryFragment;
 import com.example.mynews.fragments.errors.ErrorFragment;
 import com.example.mynews.fragments.errors.NoResultsFragment;
 import com.example.mynews.fragments.menubar.MenuBarFragment;
+import com.example.mynews.fragments.useradminoperations.UserAdminOperationsFragment;
+import com.example.mynews.fragments.usersAdmin.UserFragment;
 import com.example.mynews.models.Article;
 import com.example.mynews.models.Category;
 
@@ -25,7 +27,8 @@ public class FragmentManager {
     public static ErrorFragment errorFragment = new ErrorFragment();
     public static NoResultsFragment noResultsFragment = new NoResultsFragment();
     public static MenuBarFragment menuBarFragment = new MenuBarFragment(new ArrayList<ImageButton>());
-
+    public static UserFragment userFragment = new UserFragment();
+    public static UserAdminOperationsFragment userAdminOperationsFragment = new UserAdminOperationsFragment();
     public static void changeFragment(FragmentActivity activity, Fragment fragment){
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);

@@ -54,6 +54,14 @@ public class MenuBarFragment extends Fragment {
         this.imageButtons.addAll(imageButtons);
     }
 
+    public void addButtons(ArrayList<ImageButton> imageButtons, int index){
+        for (int i = 0; i < imageButtons.size(); i++){
+            System.out.println(this.linearLayout.getChildCount() + " / " + (i+index) + "-------------------------");
+            this.linearLayout.addView(imageButtons.get(i), index+i);
+        }
+        this.imageButtons.addAll(index, imageButtons);
+    }
+
     public void resetBackgroundForAllImageButtons(){
         for (ImageButton imageButton:imageButtons){
             imageButton.setBackground(null);

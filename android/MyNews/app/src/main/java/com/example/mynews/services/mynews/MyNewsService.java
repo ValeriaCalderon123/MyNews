@@ -67,4 +67,14 @@ public interface MyNewsService {
             @Field("email") String email,
             @Field("password") String password
     );
+
+    @GET("auth/user/")
+    public Call<User> userAuthenticated(
+            @Header("Authorization") String token
+    );
+
+    @GET("user/admin/")
+    public Call<ArrayList<User>> getAdminUserList(
+            @Header("Authorization") String token
+    );
 }
