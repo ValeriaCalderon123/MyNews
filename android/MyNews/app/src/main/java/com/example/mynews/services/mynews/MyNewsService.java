@@ -83,4 +83,9 @@ public interface MyNewsService {
             @Header("Authorization") String token,
             @Path("username") String username
     );
+
+    @GET("source/")
+    public Call<ArrayList<Source>> getSourceList(
+            @Header("Authorization") String token
+    );
 }

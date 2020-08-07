@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mynews.R;
-import com.example.mynews.fragments.dummy.DummyContent.DummyItem;
 import com.example.mynews.models.User;
 
 import java.util.ArrayList;

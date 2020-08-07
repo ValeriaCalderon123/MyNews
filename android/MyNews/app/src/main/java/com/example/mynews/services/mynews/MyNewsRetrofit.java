@@ -91,4 +91,10 @@ public class MyNewsRetrofit {
                 username
         );
     }
+
+    public Call<ArrayList<Source>> getSourceList(){
+        return this.service.getSourceList(
+                "token " + LogUser.currentLogUser.getSession().getToken()
+        );
+    }
 }

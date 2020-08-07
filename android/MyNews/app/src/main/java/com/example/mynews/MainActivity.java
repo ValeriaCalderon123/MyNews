@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.SearchView;
 
 import com.example.mynews.callbacks.ArticlesListCallBack;
+import com.example.mynews.callbacks.SourceListCallBack;
 import com.example.mynews.callbacks.UserAthenticatedCallBack;
 import com.example.mynews.fragments.FragmentManager;
 import com.example.mynews.fragments.menubar.MenuBarFragment;
@@ -55,8 +56,12 @@ public class MainActivity extends AppCompatActivity {
         ImageButton usersButton = this.createButton(R.drawable.users_icon, padding, layoutParams);
         usersButton.setOnClickListener(new MenuBarOnClickListener(usersButton, FragmentManager.userAdminOperationsFragment, this));
 
+        ImageButton sourceButton = this.createButton(R.drawable.source_icon, padding, layoutParams);
+        sourceButton.setOnClickListener(new MenuBarOnClickListener(sourceButton, FragmentManager.sourceFragment, this));
+
 
         imageButtons.add(usersButton);
+        imageButtons.add(sourceButton);
         this.retrofit.userAthenticated().enqueue(new UserAthenticatedCallBack(this.getApplicationContext(), this, imageButtons, 1));
     }
 

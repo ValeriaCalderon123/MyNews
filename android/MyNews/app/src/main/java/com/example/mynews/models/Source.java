@@ -3,6 +3,7 @@ package com.example.mynews.models;
 public class Source {
     private String name;
     private String host;
+    private int calification;
 
     public Source(String name, String host) {
         this.name = name;
@@ -23,6 +24,14 @@ public class Source {
 
     public void setHost(String host) {
         this.host = host;
+    }
+
+    public int getCalification() {
+        return calification;
+    }
+
+    public void setCalification(int calification) {
+        this.calification = calification;
     }
 
     @Override
