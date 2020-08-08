@@ -59,9 +59,12 @@ public class MainActivity extends AppCompatActivity {
         ImageButton sourceButton = this.createButton(R.drawable.source_icon, padding, layoutParams);
         sourceButton.setOnClickListener(new MenuBarOnClickListener(sourceButton, FragmentManager.sourceFragment, this));
 
+        ImageButton categoriesButton = this.createButton(R.drawable.categories_icon, padding, layoutParams);
+        categoriesButton.setOnClickListener(new MenuBarOnClickListener(categoriesButton, FragmentManager.categoryListFragment, this));
 
         imageButtons.add(usersButton);
         imageButtons.add(sourceButton);
+        imageButtons.add(categoriesButton);
         this.retrofit.userAthenticated().enqueue(new UserAthenticatedCallBack(this.getApplicationContext(), this, imageButtons, 1));
     }
 

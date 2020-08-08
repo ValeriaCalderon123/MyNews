@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.mynews.R;
 import com.example.mynews.fragments.article.NewsFragment;
 import com.example.mynews.fragments.categories.CategoryFragment;
+import com.example.mynews.fragments.category.CategoryListFragment;
 import com.example.mynews.fragments.errors.ErrorFragment;
 import com.example.mynews.fragments.errors.NoResultsFragment;
 import com.example.mynews.fragments.menubar.MenuBarFragment;
@@ -31,6 +32,7 @@ public class FragmentManager {
     public static UserFragment userFragment = new UserFragment();
     public static UserAdminOperationsFragment userAdminOperationsFragment = new UserAdminOperationsFragment();
     public static SourceFragment sourceFragment = new SourceFragment();
+    public static CategoryListFragment categoryListFragment = new CategoryListFragment();
 
     public static void changeFragment(FragmentActivity activity, Fragment fragment){
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
