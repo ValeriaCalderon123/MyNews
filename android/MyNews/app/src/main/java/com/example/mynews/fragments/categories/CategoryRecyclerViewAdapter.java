@@ -2,21 +2,14 @@ package com.example.mynews.fragments.categories;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import com.example.mynews.R;
 import com.example.mynews.models.Category;
-import com.example.mynews.onClickListeners.CalificationListener;
 import com.example.mynews.onClickListeners.CategoryListener;
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder> {
 

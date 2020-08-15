@@ -6,9 +6,6 @@ import android.view.View;
 import com.example.mynews.models.Source;
 import com.example.mynews.services.mynews.MyNewsRetrofit;
 import com.example.mynews.toast.ShowToast;
-
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

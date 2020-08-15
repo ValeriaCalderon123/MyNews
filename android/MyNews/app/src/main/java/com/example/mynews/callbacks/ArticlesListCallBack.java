@@ -1,8 +1,6 @@
 package com.example.mynews.callbacks;
 
 import androidx.fragment.app.FragmentActivity;
-
-import com.example.mynews.MainActivity;
 import com.example.mynews.fragments.FragmentManager;
 import com.example.mynews.fragments.article.NewsFragment;
 import com.example.mynews.models.Article;

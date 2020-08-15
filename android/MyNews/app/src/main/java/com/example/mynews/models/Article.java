@@ -15,6 +15,12 @@ public class Article {
         this.uuid = uuid;
     }
 
+    public Article(String title, String body, String image) {
+        this.title = title;
+        this.body = body;
+        this.image = image;
+    }
+
     public String getTitle() {
         return title;
     }

@@ -15,6 +15,9 @@ public class User {
         this.email = email;
         this.is_superuser = is_superuser;
     }
+    public User(){
+
+    }
 
     public String getUsername() {
         return username;
@@ -54,6 +57,9 @@ public class User {
 
     public void setIs_superuser(boolean is_superuser) {
         this.is_superuser = is_superuser;
+    }
+    public boolean getIs_superuser(){
+        return is_superuser;
     }
 
     @Override
